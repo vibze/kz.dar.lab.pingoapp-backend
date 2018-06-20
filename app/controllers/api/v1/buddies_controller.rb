@@ -19,7 +19,7 @@ module Api::V1
       buddy.is_blacklisted = true
       buddy.save
 
-      render json: { success: true }
+      render_ok
     end
 
     def unblacklist
@@ -27,7 +27,7 @@ module Api::V1
       buddy.is_blacklisted = false
       buddy.save
 
-      render json: { success: true }
+      render_ok
     end
   end
 end

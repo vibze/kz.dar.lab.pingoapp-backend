@@ -3,6 +3,15 @@ class ProfileController < ApplicationController
     current_profile.avatar = params[:file]
     current_profile.save
 
-    render json: {success: true}
+    render_ok
+  end
+
+  def register_device_token
+    device = Device.find_or_create_by(profile_id: current_profile.id)
+    device.provider = params[:provider]
+    device.push_token = params[:push_token]
+    device.save
+
+    render_ok
   end
 end
