@@ -10,7 +10,6 @@ module Api::V1
       response = HTTP.get("https://graph.accountkit.com/v1.3/me/?access_token=#{access_token}")
       json = JSON.parse(response.body)
 
-      p json
       phone_number = "#{json[:phone][:country_prefix]}#{json[:phone][:national_number]}"
       profile = Profile.find_or_create_by(phone_number: phone_number)
       session = Session.create(profile: profile, access_token: access_token)
