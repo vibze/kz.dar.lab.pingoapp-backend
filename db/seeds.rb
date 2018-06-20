@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if Profile.all.empty?
+  50.times do
+    n = '%010d' % rand(10 ** 10)
+    Profile.create(phone_number: "7#{n}")
+  end
+end
