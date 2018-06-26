@@ -38,6 +38,7 @@ module Api::V1
       begin
         response = HTTP.get("https://graph.accountkit.com/v1.3/me/?access_token=#{access_token}")
         json = JSON.parse(response.body)
+        p access_token
         "#{json['phone']['country_prefix']}#{json['phone']['national_number']}"
       rescue
         nil
