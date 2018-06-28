@@ -1,4 +1,7 @@
 class ProfileController < ApplicationController
+
+  before_action :check_session
+
   def update
     current_profile.avatar = params[:file]
     current_profile.save

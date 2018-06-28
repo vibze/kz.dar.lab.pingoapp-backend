@@ -1,6 +1,7 @@
 module SessionHelper
   def check_session
     access_struct = request.headers["Authorization"].split(" ")
+    p access_struct
     if access_struct.size == 2
       access_token = access_struct[1]
       session[:session_id] = get_current_session_id(access_token)

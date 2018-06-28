@@ -1,5 +1,8 @@
 module Api::V1
   class BuddiesController < ApplicationController
+
+    before_action :check_session
+
     def list
       profile = current_profile
       buddies = []
