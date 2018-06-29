@@ -10,7 +10,7 @@ module Api::V1
       json.each do |phone_number|
         buddy_profile = Profile.find_by(phone_number: phone_number)
         if buddy_profile.present?
-          buddies << Buddy.find_or_create_by(owner_profile_id: current_profile.id, buddy_profile_id: buddy_profile.id)
+          buddies << Buddy.find_or_create_by(owner_profile_id: current_profile.id, buddy_profile_id: buddy_profile.id).buddy_profile
         end
       end
 
