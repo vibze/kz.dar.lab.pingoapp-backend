@@ -4,8 +4,9 @@ module Api::V1
     before_action :check_session
 
     def update
-      current_profile.avatar = params[:file]
-      current_profile.save
+      profile = Profile.find(current_profile.id)
+      profile.avatar = params[:file]
+      profile.save
 
       render_ok
     end

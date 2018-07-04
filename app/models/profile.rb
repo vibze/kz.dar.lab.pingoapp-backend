@@ -3,6 +3,7 @@ class Profile < ApplicationRecord
   mount_uploader :avatar, ProfileAvatarUploader
 
   has_one :device, inverse_of: :profile
+  has_one :session, inverse_of: :profile
   has_and_belongs_to_many :buddies,
                           class_name: "Profile",
                           join_table: :buddies,
