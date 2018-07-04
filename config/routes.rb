@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       post 'pings/new' => 'pings#new'
       get 'pings/recent' => 'pings#recent'
 
-      post 'profile/avatar' => 'profile/update'
+      post 'profile/avatar' => 'profile#update'
       post 'profile/register_device_token' => 'profile/register_device_token'
     end
   end
