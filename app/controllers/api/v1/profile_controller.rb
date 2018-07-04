@@ -12,9 +12,9 @@ module Api::V1
     end
 
     def register_device_token
-      device = Device.find_or_create_by(profile_id: current_profile.id)
+      device = Device.find_or_initialize_by(profile_id: current_profile.id)
       device.provider = params[:provider]
-      device.push_token = params[:push_token]
+      device.push_token = params[:device_token]
       device.save
 
       render_ok
