@@ -21,6 +21,7 @@ module Api::V1
       end
 
       Ping.create(profile_id: current_profile.id, device_id: device.id, text: params[:ping_text])
+      render_ok
     end
 
     def recent
