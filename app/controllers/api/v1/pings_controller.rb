@@ -16,6 +16,12 @@ module Api::V1
         notification.alert = params[:ping_text]
         notification.content_available = true
         notification.sound = ''
+        notification.custom_data = {
+          sender_profile: {
+            id: current_profile.id,
+            phone_number: current_profile.phone_number
+          }
+        }
 
         APN.push(notification)
       end
